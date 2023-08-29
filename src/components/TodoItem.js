@@ -1,7 +1,7 @@
 import React from "react";
 import "./css/TodoItem.css";
 import { useDispatch } from "react-redux";
-import { deleteTodoItem } from "./todoSlice";
+import { deleteTodoItem, toggleItemAsDone } from "./todoSlice";
 
 const TodoItem = (props) => {
     const dispatch = useDispatch();
@@ -9,12 +9,18 @@ const TodoItem = (props) => {
         dispatch(deleteTodoItem(props.todo.id))
     }
 
+    const toggleDone = () => {
+        dispatch(toggleItemAsDone(props.todo.id));
+    }
+
     return (
-        <li className={`todoItem ${props.todo.done ? "done" : ""}`}>
-            <p>{props.todo.text}</p>
+        <li className={`todoItem ${props.todo.done && "done"}`}>
+            <p onClick={toggleDone}>{props.todo.text}</p>
+            <span>
             <button className="deleteButton" onClick={completeItem}>
                 ERASE ME FROM EXISTENCE
             </button>
+            </span>
         </li>
     );
 };
