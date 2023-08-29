@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { updateTodoList } from "./todoSlice";
+import { addTodoItem } from "./todoSlice";
 import "./css/TodoGenerator.css"
 import { useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
@@ -9,7 +9,7 @@ const TodoGenerator = () => {
     const [inputValue, setInputValue] = useState("");
 
     const handleTodoItem = () => {
-        dispatch(updateTodoList(
+        dispatch(addTodoItem(
             {
                 id: uuidv4(),
                 text: inputValue,

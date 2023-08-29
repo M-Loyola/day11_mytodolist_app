@@ -6,11 +6,17 @@ const todoSlice = createSlice({
       todoList: [],
    },
    reducers: {
-      updateTodoList: (state, action) => {
+      addTodoItem: (state, action) => {
          state.todoList.push(action.payload);
       },
+      deleteTodoItem: (state, action) => {
+         const todoToUpdate = state.todoList.find((todo) => todo.id === action.payload);
+         if (todoToUpdate) {
+            todoToUpdate.done = !todoToUpdate.done;
+         }
+      }
    }
 });
 
-export const { updateTodoList } = todoSlice.actions;
+export const { addTodoItem, deleteTodoItem } = todoSlice.actions;
 export default todoSlice.reducer;

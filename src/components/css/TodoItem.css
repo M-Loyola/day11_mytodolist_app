@@ -8,4 +8,7 @@
     align-items: center;
     justify-content: left;
     max-width: 700px;
+    &.done {
+        text-decoration: line-through;
+    }
 }
