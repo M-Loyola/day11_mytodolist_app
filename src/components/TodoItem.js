@@ -19,11 +19,7 @@ const TodoItem = (props) => {
     return (
         <li className={`todoItem ${props.todo.done && "done"}`}>
             <p onClick={toggleDone}>{props.todo.text}</p>
-            <span>
-            <button className="deleteButton" onClick={deleteItem}>
-                ERASE ME FROM EXISTENCE
-            </button>
-            </span>
+            <span className="deleteButton" onClick={deleteItem}>X</span>
         </li>
     );
 };
