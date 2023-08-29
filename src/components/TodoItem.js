@@ -26,10 +26,12 @@ const TodoItem = (props) => {
         setIsDeleteModalVisible(false);
     };
 
+    const currentDate = new Date().toISOString().split("T")[0];
+
     return (
         <Card className={`todoItem ${props.todo.done && "done"}`}>
             <Row justify="space-between" align="middle" gutter={[16, 8]}>
-                <Col onClick={toggleDone}><p>{props.todo.text}</p></Col>
+                <Col onClick={toggleDone}><p>{currentDate}: {props.todo.text}</p></Col>
                 <Col style={{ display: 'flex', justifyContent: 'flex-end' }}>
                     <button className="deleteButton" onClick={showDeleteModal}><CloseOutlined /></button>
                 </Col>
