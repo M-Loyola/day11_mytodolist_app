@@ -5,10 +5,6 @@ import { deleteTodoItem, toggleItemAsDone } from "./todoSlice";
 
 const TodoItem = (props) => {
     const dispatch = useDispatch();
-    const completeItem = () => {
-        dispatch(deleteTodoItem(props.todo.id))
-    }
-
     const toggleDone = () => {
         dispatch(toggleItemAsDone(props.todo.id));
     }
