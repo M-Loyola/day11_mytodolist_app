@@ -3,6 +3,7 @@ import { addTodoItem } from "./todoSlice";
 import "./css/TodoGenerator.css"
 import { useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
+import { Button, Input, Space } from 'antd';
 
 const TodoGenerator = () => {
     const dispatch = useDispatch()
@@ -20,10 +21,13 @@ const TodoGenerator = () => {
     }
 
     return (
-        <div className="todoGenerator">
-            <input value={inputValue} onChange={event => setInputValue(event.target.value)} />
-            <button onClick={handleTodoItem}>Add</button>
-        </div>
+        <Space.Compact className="todoGenerator">
+            <Input 
+                value={inputValue}
+                onChange={event => setInputValue(event.target.value)}
+            />
+            <Button type="primary" onClick={handleTodoItem}>Submit</Button>
+        </Space.Compact>
     );
 };
 
