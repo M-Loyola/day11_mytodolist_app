@@ -3,6 +3,7 @@ import "./css/TodoItem.css";
 import { useDispatch } from "react-redux";
 import { deleteTodoItem, toggleItemAsDone } from "./todoSlice";
 import { Card, Col, Row, Modal } from "antd";
+import { CloseOutlined, DeleteOutlined } from "@ant-design/icons";
 
 const TodoItem = (props) => {
     const dispatch = useDispatch();
@@ -28,9 +29,9 @@ const TodoItem = (props) => {
     return (
         <Card className={`todoItem ${props.todo.done && "done"}`}>
             <Row justify="space-between" align="middle" gutter={[16, 8]}>
-                <Col onClick={toggleDone}>{props.todo.text}</Col>
+                <Col onClick={toggleDone}><p>{props.todo.text}</p></Col>
                 <Col style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                    <button className="deleteButton" onClick={showDeleteModal}>X</button>
+                    <button className="deleteButton" onClick={showDeleteModal}><CloseOutlined /></button>
                 </Col>
             </Row>
             <Modal

@@ -1,12 +1,13 @@
 .todoListTitle {
-    font-size: larger;
+    font-size: 30px;
     text-align: center;
+    font-family: Arial;
     margin: 15px 0;
 }
 
 .todoListContainer {
     margin: 0 auto;
-    padding: 20px;
+    padding: 2em;
     border-radius: 5px;
 }
 
