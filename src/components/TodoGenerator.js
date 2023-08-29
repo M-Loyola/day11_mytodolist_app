@@ -5,22 +5,17 @@ import { useState } from "react";
 
 const TodoGenerator = () => {
     const dispatch = useDispatch()
-    const [newTodo, setNewTodo] = useState(" ");
+    const [inputValue, setInputValue] = useState("");
 
-    const handleInputChange = (event) => {
-        dispatch(updateTodoList(event.target.value))
-    };
-    const handleAddTodo = () =>{
-        dispatch(updateTodoList({}))
-    };
-
-
+    const handleTodoItem = () => {
+        dispatch(updateTodoList([]));
+        setInputValue("");
+    }
 
     return (
         <div className="todoGenerator">
-            <input type="text" onChange={handleInputChange}
-                placeholder="Enter a new todo" />
-            <button onClick={handleAddTodo}>Add Todo</button>
+            <input value={inputValue} onChange={event => setInputValue(event.target.value)} />
+            <button onClick={handleTodoItem} type="primary">Add</button>
         </div>
     );
 };

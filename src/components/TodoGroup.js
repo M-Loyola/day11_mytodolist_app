@@ -2,10 +2,10 @@ import React from "react";
 import "./css/TodoGroup.css";
 import TodoItem from "./TodoItem";
 
-const TodoGroup = ({ todos }) => {
+const TodoGroup = (props) => {
     return (
         <ul className="todoGroup">
-            {todos.map((todo, index) => (
+            {props.todoList.map((todo, index) => (
                 <TodoItem key={index} displayInput={todo}/>
             ))}
         </ul>
