@@ -9,17 +9,14 @@ const todoSlice = createSlice({
       addTodoItem: (state, action) => {
          state.todoList.push(action.payload);
       },
-      toggleItemAsDone: (state,action) => {
+      toggleItemAsDone: (state, action) => {
          const todoToUpdate = state.todoList.find((todo) => todo.id === action.payload);
          if (todoToUpdate) {
             todoToUpdate.done = !todoToUpdate.done;
          }
       },
       deleteTodoItem: (state, action) => {
-         const todoToUpdate = state.todoList.find((todo) => todo.id === action.payload);
-         if (todoToUpdate) {
-            todoToUpdate.done = !todoToUpdate.done;
-         }
+         state.todoList = state.todoList.filter((todo) => todo.id !== action.payload);
       }
    }
 });
