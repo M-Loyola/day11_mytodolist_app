@@ -11,8 +11,10 @@ const TodoItem = (props) => {
 
     return (
         <li className={`todoItem ${props.todo.done ? "done" : ""}`}>
-            {props.todo.text}
-            <button onClick={completeItem}>ERASE ME FROM EXISTENCE</button>
+            <p>{props.todo.text}</p>
+            <button className="deleteButton" onClick={completeItem}>
+                ERASE ME FROM EXISTENCE
+            </button>
         </li>
     );
 };
