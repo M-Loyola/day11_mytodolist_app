@@ -1,28 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import "./css/TodoItem.css";
 import { useDispatch } from "react-redux";
 import { deleteTodoItem, toggleItemAsDone } from "./todoSlice";
-import { Card, Col, Row } from "antd";
+import { Card, Col, Row, Modal } from "antd";
 
 const TodoItem = (props) => {
     const dispatch = useDispatch();
+    const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
+
     const toggleDone = () => {
         dispatch(toggleItemAsDone(props.todo.id));
-    }
-    const deleteItem = () => {
-        if(window.confirm("Do you want to delete this?")){
-            dispatch(deleteTodoItem(props.todo.id));
-        }
-    }
+    };
+
+    const showDeleteModal = () => {
+        setIsDeleteModalVisible(true);
+    };
+
+    const handleDeleteConfirm = () => {
+        dispatch(deleteTodoItem(props.todo.id));
+        setIsDeleteModalVisible(false);
+    };
+
+    const handleDeleteCancel = () => {
+        setIsDeleteModalVisible(false);
+    };
 
     return (
         <Card className={`todoItem ${props.todo.done && "done"}`}>
             <Row justify="space-between" align="middle" gutter={[16, 8]}>
                 <Col onClick={toggleDone}>{props.todo.text}</Col>
                 <Col style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                    <button className="deleteButton" onClick={deleteItem}>X</button>
+                    <button className="deleteButton" onClick={showDeleteModal}>X</button>
                 </Col>
             </Row>
+            <Modal
+                title="Delete Todo"
+                visible={isDeleteModalVisible}
+                onOk={handleDeleteConfirm}
+                onCancel={handleDeleteCancel}
+            >
+                <p>Do you want to delete this?</p>
+            </Modal>
         </Card>
     );
 };
