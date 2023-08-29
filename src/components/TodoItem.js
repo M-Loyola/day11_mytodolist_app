@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import "./css/TodoItem.css";
+import { CloseOutlined } from "@ant-design/icons";
+import { Card, Col, Modal, Row } from "antd";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
+import "./css/TodoItem.css";
 import { deleteTodoItem, toggleItemAsDone } from "./todoSlice";
-import { Card, Col, Row, Modal } from "antd";
-import { CloseOutlined, DeleteOutlined } from "@ant-design/icons";
 
 const TodoItem = (props) => {
     const dispatch = useDispatch();
@@ -13,13 +13,13 @@ const TodoItem = (props) => {
         dispatch(toggleItemAsDone(props.todo.id));
     };
 
-    const showDeleteModal = () => {
-        setIsDeleteModalVisible(true);
-    };
-
     const handleDeleteConfirm = () => {
         dispatch(deleteTodoItem(props.todo.id));
         setIsDeleteModalVisible(false);
+    };
+
+    const showDeleteModal = () => {
+        setIsDeleteModalVisible(true);
     };
 
     const handleDeleteCancel = () => {
