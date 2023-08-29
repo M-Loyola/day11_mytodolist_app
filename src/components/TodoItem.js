@@ -13,13 +13,15 @@ const TodoItem = (props) => {
         dispatch(toggleItemAsDone(props.todo.id));
     }
     const deleteItem = () => {
-        dispatch(deleteTodoItem(props.todo.id));
+        if(window.confirm("Do you want to delete this?")){
+            dispatch(deleteTodoItem(props.todo.id));
+        }
     }
 
     return (
         <li className={`todoItem ${props.todo.done && "done"}`}>
             <p onClick={toggleDone}>{props.todo.text}</p>
-            <span className="deleteButton" onClick={deleteItem}>
+            <span className="deleteButton">
                 <button className="deleteButton" onClick={deleteItem}>X</button>
             </span>
         </li>
