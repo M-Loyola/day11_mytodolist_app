@@ -38,7 +38,7 @@ const TodoItem = (props) => {
             </Row>
             <Modal
                 title="Delete Todo"
-                visible={isDeleteModalVisible}
+                open={isDeleteModalVisible}
                 onOk={handleDeleteConfirm}
                 onCancel={handleDeleteCancel}
             >
