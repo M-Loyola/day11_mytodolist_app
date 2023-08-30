@@ -4,7 +4,8 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "./css/TodoItem.css";
-import { deleteTodoItem } from "./todoSlice";
+import { deleteTodoItem, resetTodoList } from "./todoSlice";
+import * as todoApi from "../api/todoApi";
 
 const DoneItem = (props) => {
     const dispatch = useDispatch();
@@ -15,8 +16,11 @@ const DoneItem = (props) => {
         navigate('/done/' + props.todo.id);
     };
 
-    const handleDeleteConfirm = () => {
-        dispatch(deleteTodoItem(props.todo.id));
+    const handleDeleteConfirm = async () => {
+        await todoApi.deleteTodoTask(props.todo.id);
+        const response = await todoApi.getTodoTasks();
+        dispatch(resetTodoList(response.data));
+        // dispatch(deleteTodoItem(props.todo.id));
         setIsDeleteModalVisible(false);
     };
 
