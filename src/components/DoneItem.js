@@ -2,15 +2,17 @@ import { CloseOutlined } from "@ant-design/icons";
 import { Card, Col, Modal, Row } from "antd";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import "./css/TodoItem.css";
-import { deleteTodoItem, onToggle } from "./todoSlice";
+import { deleteTodoItem } from "./todoSlice";
 
 const DoneItem = (props) => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
 
     const onTriggerToggle = () => {
-        dispatch(onToggle(props.todo.id));
+        navigate('/done/' + props.todo.id);
     };
 
     const handleDeleteConfirm = () => {
