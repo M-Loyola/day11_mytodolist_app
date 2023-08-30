@@ -3,14 +3,14 @@ import { Card, Col, Modal, Row } from "antd";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import "./css/TodoItem.css";
-import { deleteTodoItem, toggleItemAsDone } from "./todoSlice";
+import { deleteTodoItem, onToggle } from "./todoSlice";
 
 const TodoItem = (props) => {
     const dispatch = useDispatch();
     const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
 
-    const toggleDone = () => {
-        dispatch(toggleItemAsDone(props.todo.id));
+    const onTriggerToggle = () => {
+        dispatch(onToggle(props.todo.id));
     };
 
     const handleDeleteConfirm = () => {
@@ -31,7 +31,7 @@ const TodoItem = (props) => {
     return (
         <Card className={`todoItem ${props.todo.done && "done"}`}>
             <Row justify="space-between" align="middle" gutter={[16, 8]}>
-                <Col onClick={toggleDone}><p>{currentDate}: {props.todo.text}</p></Col>
+                <Col onClick={onTriggerToggle}><p>{currentDate}: {props.todo.text}</p></Col>
                 <Col style={{ display: 'flex', justifyContent: 'flex-end' }}>
                     <button className="deleteButton" onClick={showDeleteModal}><CloseOutlined /></button>
                 </Col>
