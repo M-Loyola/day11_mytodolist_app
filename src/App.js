@@ -1,18 +1,18 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, NavLink } from "react-router-dom";
 
 function App() {
   return (
     <>
-    <div className="nav-bar">
-      <nav>
-        <ul style={{display:"flex", listStyleType: "none", justifyContent: "space-evenly"}}>
-          <li><a  href={'/'}>Home</a></li>
-          <li><a  href={'/done'}>Done List</a></li>
-          <li><a  href={'/help'}>Help</a></li>
-        </ul>
-      </nav>
-    </div>
-    <Outlet/>
+      <div className="nav-bar">
+        <nav>
+          <ul style={{ display: "flex", listStyleType: "none", justifyContent: "space-evenly" }}>
+            <li><NavLink to={'/'}>Home</NavLink></li>
+            <li><NavLink to={'/done'}>Done List</NavLink></li>
+            <li><NavLink to={'/help'}>Help</NavLink></li>
+          </ul>
+        </nav>
+      </div>
+      <Outlet />
     </>
   );
 }
