@@ -3,14 +3,17 @@ import { Card, Col, Modal, Row } from "antd";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import "./css/TodoItem.css";
-import { deleteTodoItem, onToggle } from "./todoSlice";
+import { deleteTodoItem, onToggle, resetTodoList } from "./todoSlice";
+import * as todoApi from "../api/todoApi";
 
 const TodoItem = (props) => {
     const dispatch = useDispatch();
     const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
 
-    const onTriggerToggle = () => {
-        dispatch(onToggle(props.todo.id));
+    const onTriggerToggle = async () => {
+        await todoApi.updateTodoTask(props.todo.id, {done: !props.todo.done});
+        const response = await todoApi.getTodoTasks();
+        dispatch(resetTodoList(response.data));
     };
 
     const handleDeleteConfirm = () => {
