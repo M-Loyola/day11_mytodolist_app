@@ -7,7 +7,7 @@ export const TodoItemDetail = () => {
         state.todo.todoList.find((todoItem) => todoItem.id === id)
     );
     return (
-        <div className="todo-detail">
+        <div className="todo-detail" style={{color: "white"}}>
             <h1>Todo Item Detail</h1>
             <div>{todoItem.id}</div>
             <div>{todoItem.text}</div>

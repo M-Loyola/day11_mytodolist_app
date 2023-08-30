@@ -9,7 +9,6 @@ const todoSlice = createSlice({
       resetTodoList: (state, action) => {
          state.todoList = action.payload;
       },
-
    }
 });
 

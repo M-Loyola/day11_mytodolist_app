@@ -1,7 +1,7 @@
+import { Col, Row } from "antd";
 import { useSelector } from "react-redux";
 import TodoItem from "./TodoItem";
 import "./css/TodoGroup.css";
-import { Col, Row } from "antd";
 
 const TodoGroup = () => {
     const todoList = useSelector((state) => state.todo.todoList.filter(todo => !todo.done))

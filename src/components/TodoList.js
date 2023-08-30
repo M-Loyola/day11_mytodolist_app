@@ -8,13 +8,13 @@ import { resetTodoList } from "./todoSlice";
 
 const TodoList = () => {
     const dispatch = useDispatch();
-    useEffect(()=> {
+    useEffect(() => {
         const fetchData = async () => {
             const response = await todoApi.getTodoTasks();
             dispatch(resetTodoList(response.data));
         }
         fetchData();
-    },[])
+    }, [dispatch])
 
     return (
         <div className="todoListContainer">
