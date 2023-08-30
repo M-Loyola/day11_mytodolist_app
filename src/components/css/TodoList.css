@@ -1,8 +1,10 @@
 .todoListTitle {
-    font-size: 30px;
+    font-size: 50px;
     text-align: center;
     font-family: Arial;
     margin: 15px 0;
+    color: #ff6eff;
+    text-shadow: 0 0 10px #ff6eff, 0 0 20px #ff6eff, 0 0 30px #ff6eff, 0 0 40px #ff6eff, 0 0 50px #ff6eff, 0 0 60px #ff6eff, 0 0 70px #ff6eff
 }
 
 .todoListContainer {

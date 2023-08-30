@@ -34,12 +34,12 @@ const DoneItem = (props) => {
     const currentDate = new Date().toISOString().split("T")[0];
 
     return (
-        <Card className={`todoItem ${props.todo.done && "done"}`}>
-            <Row justify="space-between" align="middle" gutter={[16, 8]}>
-                <Col onClick={onTriggerToggle}><p>{currentDate}: {props.todo.text}</p></Col>
-                <Col style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                    <button className="deleteButton" onClick={showDeleteModal}><CloseOutlined /></button>
-                </Col>
+        <Card className={`todoItem ${props.todo.done && "done"}`} style={{ height: '150px', margin: '5px', position: 'relative' }}>
+            <div className="buttonsContainer" style={{ position: 'absolute', top: 0, right: 0 }}>
+                <button className="deleteButton" onClick={showDeleteModal}><CloseOutlined /></button>
+            </div>
+            <Row justify="space-between" align="middle" gutter={[16, 8]} style={{ justifyContent: 'space-between' }}>
+                <Col onClick={onTriggerToggle}><p className="itemTask">{currentDate}: {props.todo.text}</p></Col>
             </Row>
             <Modal
                 title="Delete Todo"
@@ -50,6 +50,7 @@ const DoneItem = (props) => {
                 <p>Do you want to delete this?</p>
             </Modal>
         </Card>
+
     );
 };
 

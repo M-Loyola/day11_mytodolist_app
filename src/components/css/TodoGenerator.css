@@ -16,3 +16,12 @@
   right: 20px;
   z-index: 9999;
 }
+
+input {
+  background-color: rgba(165, 163, 163, 0.659) !important;
+  border: rgba(241, 240, 240, 0.696) !important;
+}
+
+button {
+  background-color: rgba(29, 27, 27, 0.781) !important;
+}

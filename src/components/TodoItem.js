@@ -1,4 +1,4 @@
-import { CloseOutlined } from "@ant-design/icons";
+import { CloseOutlined, EditOutlined } from "@ant-design/icons";
 import { Card, Col, Input, Modal, Row } from "antd";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -53,15 +53,13 @@ const TodoItem = (props) => {
     const currentDate = new Date().toISOString().split("T")[0];
 
     return (
-        <Card className={`todoItem ${props.todo.done && "done"}`}>
-            <Row justify="space-between" align="middle" gutter={[16, 8]}>
-                <Col onClick={onTriggerToggle}><p>{currentDate}: {props.todo.text}</p></Col>
-                <Col style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                    <button className="updateButton" onClick={showUpdateModal}><CloseOutlined /></button>
-                </Col>
-                <Col style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                    <button className="deleteButton" onClick={showDeleteModal}><CloseOutlined /></button>
-                </Col>
+        <Card className={`todoItem ${props.todo.done && "done"}`} style={{ height: '150px', margin: '5px', position: 'relative' }}>
+            <div className="buttonsContainer" style={{ position: 'absolute', top: 0, right: 0 }}>
+                <button className="updateButton" onClick={showUpdateModal}><EditOutlined /></button>
+                <button className="deleteButton" onClick={showDeleteModal}><CloseOutlined /></button>
+            </div>
+            <Row justify="space-between" align="middle" gutter={[16, 8]} style={{ justifyContent: 'space-between' }}>
+                <Col onClick={onTriggerToggle}><p className="itemTask">{currentDate}: {props.todo.text}</p></Col>
             </Row>
             <Modal
                 title="Delete Todo"

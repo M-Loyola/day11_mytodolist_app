@@ -2,8 +2,26 @@
   text-align: center;
 }
 
+body {
+  background-image: url('cyber-bg.gif');
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  backdrop-filter: blur(3px);
+}
+
 .nav-bar {
   display: block;
-  /* justify-content: center; 
-  align-self: center; */
+  width: 100%;
+  opacity: 40%;
+  font-weight: 700;
+  color: white;
+  background-color:black;
 }
+
+.nav-bar :hover{
+  color: white;
+}
+

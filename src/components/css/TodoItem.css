@@ -1,14 +1,49 @@
 .todoItem {
-    border: 1px solid #ccc;
+    border: none;
     list-style-type: none;
     align-items: center;
     justify-content: center;
+    background-color: rgba(32, 37, 56, 0.721);
 
     &.done {
         text-decoration: line-through;
+        color: #ff6eff;
+        text-shadow: 0 0 10px #ff6eff, 0 0 20px #ff6eff, 0 0 30px #ff6eff, 0 0 40px #ff6eff, 0 0 50px #ff6eff, 0 0 60px #ff6eff, 0 0 70px #ff6eff
     }
 }
 
 div.ant-card-body {
     width: 100%;
+    padding: 0px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+}
+
+.itemTask {
+    font-family: 'system-ui';
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.794);
+    text-shadow: 0 0 10px #ff6eff, 0 0 20px #ff6eff, 0 0 30px #ff6eff, 0 0 40px #ff6eff, 0 0 50px #ff6eff, 0 0 60px #ff6eff, 0 0 70px #ff6eff
+}
+
+.buttonsContainer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.deleteButton {
+    color: white;
+    font-weight: 700;
+}
+
+.updateButton {
+    color: white;
+    font-weight: 700;
+    margin-left: 8px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    font: inherit;
+    cursor: pointer;
+    outline: none;
 }

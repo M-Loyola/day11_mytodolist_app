@@ -1,13 +1,16 @@
 import { useSelector } from "react-redux";
 import DoneItem from "./DoneItem";
+import { Col, Row } from "antd";
 
-export const DoneGroup = (props) => {
+export const DoneGroup = () => {
     const todoList = useSelector((state) => state.todo.todoList.filter(todo => todo.done))
     return (
-        <ul className="todoGroup">
+        <Row justify="center" className="todoGroup">
             {todoList.map((todo) => (
-                <DoneItem key={todo.id} todo={todo} done={todo.done} isDone={props.isDone} />
+                <Col key={todo.id} xs={24} sm={12} md={8} >
+                    <DoneItem todo={todo} />
+                </Col>
             ))}
-        </ul>
+        </Row>
     );
 }
