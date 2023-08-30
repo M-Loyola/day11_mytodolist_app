@@ -10,7 +10,11 @@ const TodoItem = (props) => {
     const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
 
     const onTriggerToggle = () => {
-        dispatch(onToggle(props.todo.id));
+        if(props.isDone) {
+            console.log("somethingsomething")
+        } else {
+            dispatch(onToggle(props.todo.id));
+        }
     };
 
     const handleDeleteConfirm = () => {
@@ -31,7 +35,7 @@ const TodoItem = (props) => {
     return (
         <Card className={`todoItem ${props.todo.done && "done"}`}>
             <Row justify="space-between" align="middle" gutter={[16, 8]}>
-                <Col onClick={onTriggerToggle}><p>{currentDate}: {props.todo.text}</p></Col>
+                <Col className={`${props.todo.done  ? 'done' : ''}`} onClick={onTriggerToggle}><p>{currentDate}: {props.todo.text}</p></Col>
                 <Col style={{ display: 'flex', justifyContent: 'flex-end' }}>
                     <button className="deleteButton" onClick={showDeleteModal}><CloseOutlined /></button>
                 </Col>
