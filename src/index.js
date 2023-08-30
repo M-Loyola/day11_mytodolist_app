@@ -5,12 +5,19 @@ import App from './App';
 import { store } from './app/store';
 import reportWebVitals from './reportWebVitals';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { HelpPage } from './pages/HelpPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const router = createBrowserRouter([{
-  path: "/",
-  element: <App/>
-}]);
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />
+  },
+  {
+    path: "/help",
+    element: <HelpPage />
+  }
+]);
 
 root.render(
   <React.StrictMode>
