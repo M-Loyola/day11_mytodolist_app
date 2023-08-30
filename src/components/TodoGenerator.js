@@ -1,4 +1,4 @@
-import { Button, Input, Space } from 'antd';
+import { Button, Input, Space, notification } from 'antd';
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { v4 as uuidv4 } from 'uuid';
@@ -7,11 +7,17 @@ import { addTodoItem } from "./todoSlice";
 
 const TodoGenerator = () => {
     const dispatch = useDispatch()
+    const [api, contextHolder] = notification.useNotification();
     const [inputValue, setInputValue] = useState("");
 
     const handleTodoItem = () => {
         if (inputValue.trim() === '') {
-            window.confirm("Input can't be blank");
+            api.error({
+                message: 'Error',
+                description:
+                    'Please enter an item to proceed!',
+                duration: 2,
+            });
         } else {
             dispatch(addTodoItem(
                 {
@@ -26,7 +32,8 @@ const TodoGenerator = () => {
 
     return (
         <Space.Compact className="todoGenerator">
-            <Input 
+            {contextHolder}
+            <Input
                 value={inputValue}
                 onChange={event => setInputValue(event.target.value)}
             />
