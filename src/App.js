@@ -1,4 +1,4 @@
-import TodoList from "./components/TodoList";
+import { Outlet } from "react-router-dom";
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
         </ul>
       </nav>
     </div>
-    <TodoList />
+    <Outlet/>
     </>
   );
 }
