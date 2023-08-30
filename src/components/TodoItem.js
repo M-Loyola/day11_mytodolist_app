@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import * as todoApi from "../api/todoApi";
 import "./css/TodoItem.css";
-import { deleteTodoItem, resetTodoList } from "./todoSlice";
+import { resetTodoList } from "./todoSlice";
 
 const TodoItem = (props) => {
     const dispatch = useDispatch();

@@ -2,9 +2,9 @@ import { Button, Input, Space, notification } from 'antd';
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { v4 as uuidv4 } from 'uuid';
-import "./css/TodoGenerator.css";
-import { addTodoItem, resetTodoList } from "./todoSlice";
 import * as todoApi from "../api/todoApi";
+import "./css/TodoGenerator.css";
+import { resetTodoList } from "./todoSlice";
 
 const TodoGenerator = () => {
     const dispatch = useDispatch()

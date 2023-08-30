@@ -1,9 +1,9 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import * as todoApi from "../api/todoApi";
 import TodoGenerator from "./TodoGenerator";
 import TodoGroup from "./TodoGroup";
 import "./css/TodoList.css";
-import { useEffect } from "react";
-import * as todoApi from "../api/todoApi";
 import { resetTodoList } from "./todoSlice";
 
 const TodoList = () => {
