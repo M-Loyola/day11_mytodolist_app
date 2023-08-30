@@ -3,9 +3,9 @@ import { Card, Col, Modal, Row } from "antd";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import "./css/TodoItem.css";
-import { deleteTodoItem, resetTodoList } from "./todoSlice";
 import * as todoApi from "../api/todoApi";
+import "./css/TodoItem.css";
+import { resetTodoList } from "./todoSlice";
 
 const DoneItem = (props) => {
     const dispatch = useDispatch();
@@ -20,7 +20,6 @@ const DoneItem = (props) => {
         await todoApi.deleteTodoTask(props.todo.id);
         const response = await todoApi.getTodoTasks();
         dispatch(resetTodoList(response.data));
-        // dispatch(deleteTodoItem(props.todo.id));
         setIsDeleteModalVisible(false);
     };
 
