@@ -3,14 +3,15 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { v4 as uuidv4 } from 'uuid';
 import "./css/TodoGenerator.css";
-import { addTodoItem } from "./todoSlice";
+import { addTodoItem, resetTodoList } from "./todoSlice";
+import * as todoApi from "../api/todoApi";
 
 const TodoGenerator = () => {
     const dispatch = useDispatch()
     const [api, contextHolder] = notification.useNotification();
     const [inputValue, setInputValue] = useState("");
 
-    const handleTodoItem = () => {
+    const handleTodoItem = async () => {
         if (inputValue.trim() === '') {
             api.error({
                 message: 'Error',
@@ -19,13 +20,15 @@ const TodoGenerator = () => {
                 duration: 2,
             });
         } else {
-            dispatch(addTodoItem(
+            await todoApi.addTodoTask(
                 {
                     id: uuidv4(),
                     text: inputValue,
                     done: false
                 }
-            ));
+            );
+            const response = await todoApi.getTodoTasks();
+            dispatch(resetTodoList(response.data));
             setInputValue("");
         }
     }
