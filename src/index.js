@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { HelpPage } from './pages/HelpPage';
 import TodoList from './components/TodoList';
+import { DoneList } from './components/DoneList';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
@@ -20,7 +21,8 @@ const router = createBrowserRouter([
       },
       {
         path:  "/done", 
-        element: <TodoList isDone={true}/>
+        // element: <TodoList isDone={true}/>
+        element: <DoneList />
       },
       {
         path: "/help",

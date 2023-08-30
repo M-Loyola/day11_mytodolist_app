@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import "./css/TodoItem.css";
 import { deleteTodoItem, onToggle } from "./todoSlice";
 
-const TodoItem = (props) => {
+const DoneItem = (props) => {
     const dispatch = useDispatch();
     const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
 
@@ -55,4 +55,4 @@ const TodoItem = (props) => {
     );
 };
 
-export default TodoItem;
+export default DoneItem;
