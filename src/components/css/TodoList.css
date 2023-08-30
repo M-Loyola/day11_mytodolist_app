@@ -3,8 +3,8 @@
     text-align: center;
     font-family: Arial;
     margin: 15px 0;
-    color: #ff6eff;
-    text-shadow: 0 0 3px rgba(0, 0, 0, 0.2), 0 0 5px rgba(255, 110, 238, 0.5), 0 0 8px rgba(255, 110, 238, 0.8), 0 0 10px rgba(255, 110, 238, 1);
+    color: #c678ff; /* Neon purple color */
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.2), 0 0 5px rgba(198, 120, 255, 0.5), 0 0 10px rgba(198, 120, 255, 0.8), 0 0 15px rgba(198, 120, 255, 1);
 }
 
 .todoListContainer {

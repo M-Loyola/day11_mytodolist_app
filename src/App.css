@@ -10,6 +10,7 @@ body {
   padding: 0;
   height: 100vh;
   backdrop-filter: blur(3px);
+  background-color: black;
 }
 
 .nav-bar {

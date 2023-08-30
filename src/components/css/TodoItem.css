@@ -3,7 +3,7 @@
     list-style-type: none;
     align-items: center;
     justify-content: center;
-    background-color: rgba(32, 37, 56, 0.721);
+    background-color: rgba(37, 39, 45, 0.826);
 
     &.done {
         text-decoration: line-through;
