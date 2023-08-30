@@ -14,7 +14,6 @@ const TodoList = () => {
         });
     },[])
 
-    const todoList = useSelector((state) => state.todo.todoList.filter(todo => !todo.done))
     return (
         <div className="todoListContainer">
             <h2 className="todoListTitle"> Todo List</h2>
