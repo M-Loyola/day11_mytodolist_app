@@ -1,6 +1,5 @@
-import React from "react";
-import "./css/TodoGroup.css";
 import TodoItem from "./TodoItem";
+import "./css/TodoGroup.css";
 
 const TodoGroup = (props) => {
     return (

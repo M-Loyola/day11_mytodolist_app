@@ -1,8 +1,9 @@
 .todoItem {
     border: 1px solid #ccc;
-    list-style-type: none; 
+    list-style-type: none;
     align-items: center;
     justify-content: center;
+
     &.done {
         text-decoration: line-through;
     }
