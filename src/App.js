@@ -1,6 +1,6 @@
 import { Menu } from "antd";
 import { Outlet, NavLink } from "react-router-dom";
-import  './App.css';
+import './App.css';
 
 function App() {
   return (

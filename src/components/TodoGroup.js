@@ -7,7 +7,7 @@ const TodoGroup = (props) => {
     return (
         <ul className="todoGroup">
             {(props.isDone ? todoList.filter(task=> task.done) : todoList).map((todo) => (
-                <TodoItem key={todo.id} todo={todo} />
+                <TodoItem key={todo.id} todo={todo} done={todo.done} isDone={props.isDone} />
             ))}
         </ul>
     );
