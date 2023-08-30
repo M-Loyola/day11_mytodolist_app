@@ -7,3 +7,7 @@ export const getTodoTasks = () => {
 export const updateTodoTask = (id, todoList) => {
     return api.put(`/todos/${id}`, todoList); //first url and second is request body
 }
+
+export const deleteTodoTask = (id) => {
+    return api.delete(`/todos/${id}`); 
+}
